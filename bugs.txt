@@ -1,0 +1,2 @@
+login.php navbar funktioniert nicht bei mobile
+index.php bilder werden nicht angezeigt bei mobile
