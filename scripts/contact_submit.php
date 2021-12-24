@@ -18,6 +18,8 @@ $headers .= 'Reply-To: '.$field_email."\r\n";
 $mail_status = mail($mail_to,$subject,$body_message,$headers);
 
 if ($mail_status) { ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script language="javascript" type="text/javascript">
 		alert('Vielen Dank für Ihre Nachricht. Wir werden uns schnellstmöglich mit Ihnen in Verbindung setzen.');
 		window.location = '../index.php';
@@ -25,6 +27,8 @@ if ($mail_status) { ?>
 <?php
 }
 else { ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script language="javascript" type="text/javascript">
 		alert('Nachricht konnte nicht versendent werden. Bitte versuchen Sie es später erneut.');
 		window.location = '../contact.php';

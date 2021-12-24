@@ -16,8 +16,6 @@ function readCookie() {
 
 
 
-
-
 /*
    <div id="pos">
         Deine Position wird ermittelt...

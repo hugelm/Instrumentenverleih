@@ -4,8 +4,8 @@
 
    <meta charset="utf-8">
    
-   <title>PornHub</title>
-   <link rel = "icon" href = "https://venturebeat.com/wp-content/uploads/2017/03/pornhub_logo.jpg?w=750&strip=all" type = "image/x-icon">
+   <title>D&H - Kontakt</title>
+   <link rel="icon" href="./img/logo.jpg"  type="image/x-icon">
           
    <meta name="description" content="Verleih von Musikinstrumenten">
    <meta http-ewuiv="X-UA-Compatible" content="IE=edge">
@@ -27,33 +27,6 @@
 
     <!-- Navigation-Bar -->
     <?php include ("main/header.php"); ?>
-
-    <!-- Login Modal -->
-    <div id="login" class="modal">
-      <span onclick="document.getElementById('login').style.display='none'"class="close" title="Close Modal">&times;</span>
-
-    <!-- Login Modal Content -->
-    <form class="modal-content animate" action="/action_page.php">
-
-      <div class="container">
-        <label for="uname"><b>Benutzername</b></label>
-        <input type="text" placeholder="..." name="uname" required>
-
-        <label for="psw"><b>Passwort</b></label>
-        <input type="password" placeholder="***" name="psw" required>
-
-      <button type="submit">Einloggen</button>
-      <label>
-          <input type="checkbox" checked="checked" name="remember"> Eingeloggt bleiben
-      </label>
-      </div>
-
-      <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Abbrechen</button>
-          <span class="psw"><a href="#forgotpsw">Passwort vergessen?</a></span>
-      </div>
-     </form>
-    </div> 
   
     <!-- Contact Form -->
 

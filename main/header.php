@@ -37,7 +37,7 @@ echo '    <!-- Navigation-Bar -->
       <a class="nav-link" href="contact.php">Kontakt</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login.php">
+      <a class="nav-link" href="customerPortal.php">
        <button type="button" class="btn btn-primary me-2">
         Mein D&H <i class="fa fa-music"></i>
         </button>

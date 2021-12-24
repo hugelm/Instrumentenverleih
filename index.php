@@ -4,9 +4,9 @@
 
    <meta charset="utf-8">
    
-   <title>PornHub</title>
-   <link rel = "icon" href = "https://venturebeat.com/wp-content/uploads/2017/03/pornhub_logo.jpg?w=750&strip=all" type = "image/x-icon">
-          
+   <title>D&H - Verleih</title>
+   <link rel="icon" href="./img/logo.jpg"  type="image/x-icon">
+ 
    <meta name="description" content="Verleih von Musikinstrumenten">
    <meta http-ewuiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
