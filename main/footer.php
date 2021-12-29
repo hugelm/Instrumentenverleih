@@ -19,7 +19,7 @@ echo '
     <div class="col-md-4 col-12 mb-4 mb-md-0">
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="form5Example25" class="form-control" placeholder="max.mustermann@gmail.com" required/>
+        <input type="email" id="form5Example25" class="form-control" placeholder="max.mustermann@gmail.com" value="'.$email.'" required/>
         <label class="form-label" for="form5Example25">E-Mail Adresse</label>
       </div>
     </div>
@@ -28,7 +28,7 @@ echo '
     <!--Grid column-->
     <div class="col-auto mb-4 mb-md-0">
       <!-- Submit button -->
-      <button type="submit" class="btn btn-info mb-4">
+      <button type="submit" class="btn btn-primary mb-4">
         Anmelden
       </button>
     </div>
@@ -75,25 +75,22 @@ echo '
             </li>
           </ul>
 
-          <!-- Facebook -->
+          <!-- Social Media Support -->
           <a class="btn btn-outline-light btn-floating m-1"  href="https://de-de.facebook.com/" role="button" target=”_blank”
             ><i class="fa fa-facebook-f"></i
           ></a>
-    
-          <!-- Twitter -->
           <a class="btn btn-outline-light btn-floating m-1"  href="https://twitter.com/" role="button" target=”_blank”
             ><i class="fa fa-twitter"></i
           ></a>
-    
-          <!-- Instagram -->
           <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button" target=”_blank”
             ><i class="fa fa-instagram"></i
           ></a>
-
-          <!-- Google -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/maps/search/D%26H+Instrumentenverleih" role="button" target=”_blank”
-            ><i class="fa fa-google"></i
+          <a class="btn btn-outline-light btn-floating m-1" href="https://de.linkedin.com/" role="button" target=”_blank”
+            ><i class="fa fa-linkedin"></i
           ></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/majushgl/Web---Instrumentenverleih" role="button" target=”_blank”
+          ><i class="fa fa-github"></i
+        ></a>
 
         </div>
 

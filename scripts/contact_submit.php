@@ -2,7 +2,7 @@
 $field_name = $_POST['name'];
 $field_email = $_POST['email'];
 $field_phone = $_POST['phone'];
-$field_message = $_POST['message'];
+$field_message = $_POST['msg'];
 
 $mail_to = 'majus@ist-willig.de';
 $subject = 'Anfrage an D&H Instrumentenverleih'.$field_name;

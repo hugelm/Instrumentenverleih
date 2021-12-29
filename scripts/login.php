@@ -1,25 +1,27 @@
 <?php
 
-$nameT = $_POST['name'];
-$birth = $_POST['birthdayDate'];
-$street = $_POST['street'];
-$housenumber = $_POST['number'];
-$zipcode = $_POST['zipcode'];
-$city = $_POST['city'];
-$phone = $_POST['phoneNumber'];
-$email = $_POST['emailAdress'];
-$pwd = $_POST['pwd'];
+session_start();
 
-$sql = "INSERT INTO users (nameT, birth, street, housenumber, zipcode, city, phone, email, pwd) VALUES (?,?,?,?,?,?,?,?,?)";
-//$insert = $db->prepare($sql);
-$res = $insert->execute([$nameT, $birth, $street, $housenumber, $zipcode, $city, $phone, $email, $pwd);
+require_once("config.php");
 
-if($res){
-    echo('works');
-} else {
-    echo('error');
+if(isset($_POST)){
+    $email = $_POST['login_email'];
+    $pwd = sha1($_POST['login_pwd']);
+    
+    $sql = "SELECT * FROM user WHERE email = ? AND pwd = ? LIMIT 1";
+    $select = $db->prepare($sql);
+    $res = $select->execute([$email, $pwd]);
+
+    if($res){
+       $user = $select->fetch(PDO::FETCH_ASSOC);
+       if($select->rowCount() > 0){
+          $_SESSION['userlogin'] = $user;
+          echo 'user found';
+       } else {
+          echo 'no user found';
+       }
+    };
 }
-
 
 
 ?>

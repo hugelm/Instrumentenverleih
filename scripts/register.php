@@ -14,7 +14,7 @@ if(isset($_POST)){
     $city = $_POST['city'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-    $pwd = $_POST['pwd'];
+    $pwd = sha1($_POST['pwd']);
     
 
     $sql = "INSERT INTO user (firstName, lastName, birth, street, housenumber, zipcode, city, phone, email, pwd) VALUES (?,?,?,?,?,?,?,?,?,?)";

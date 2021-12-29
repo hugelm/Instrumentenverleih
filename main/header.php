@@ -1,5 +1,7 @@
+<?php include ("main/data.php"); ?>
 <?php
-echo '    <!-- Navigation-Bar -->
+echo '   
+<!-- Navigation-Bar -->
 
 <div class="fixed-top">
 
@@ -9,7 +11,9 @@ echo '    <!-- Navigation-Bar -->
      <img src="./img/logo.jpg" alt="D&H" class="img-thumbnail bg-dark" width="80" height="80">
     </div>
     <div class="header">
-      <a class="navbar-brand fs-3" href="index.php">Instrumentenverleih</a>
+      <a class="navbar-brand fs-3" href="index.php">
+      '.$header.'
+      </a>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
@@ -37,12 +41,13 @@ echo '    <!-- Navigation-Bar -->
       <a class="nav-link" href="contact.php">Kontakt</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="customerPortal.php">
-       <button type="button" class="btn btn-primary me-2">
-        Mein D&H <i class="fa fa-music"></i>
+      <form method="post" action="./scripts/logout.php">
+        <button type="submit" class="'.$sessionSet[0].'">
+          <i class="'.$sessionSet[1].'"></i> 
+          '.$sessionSet[2].'
         </button>
-      </a>
-    </li>
+      </form>  
+    </li>    
     <li class="d-flex align-items-center">
       <a class="icon-link" href="https://de-de.facebook.com/" target=”_blank”>
         <i class="fa fa-facebook fa-lg"></i>  
@@ -50,16 +55,17 @@ echo '    <!-- Navigation-Bar -->
       <a class="icon-link" href="https://www.instagram.com/" target=”_blank”>
         <i class="fa fa-instagram"></i>  
       </a>
-      <a class="icon-link" href="https://de.linkedin.com/" target=”_blank”>
-        <i class="fa fa-linkedin"></i>  
+      <a class="icon-link" href="https://www.google.com/maps/search/D%26H+Instrumentenverleih" target=”_blank”>
+        <i class="fa fa-google"></i>  
       </a>  
       <a class="icon-link" href="https://www.youtube.com/results?search_query=D%26H+Instrumentenverleih" target=”_blank”>
        <i class="fa fa-youtube"></i>  
       </a> 
       <a class="icon-link" href="https://www.google.com/maps/search/D%26H+Instrumentenverleih" target=”_blank”>
        <i class="fa fa-map"></i>  
-      </a>               
-    </li>  
+      </a>
+    </li> 
+          
   </ul>
 
   </div>
