@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `dhverleih`
 --
 
+CREATE DATABASE IF NOT EXISTS dhverleih DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE dhverleih;
 -- --------------------------------------------------------
 
 --
@@ -30,7 +32,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `newsletter` (
   `id` int NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `newsletter`
@@ -54,8 +56,8 @@ CREATE TABLE `orderinstruments` (
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
   `street` varchar(30) NOT NULL,
-  `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `city` varchar(30) NOT NULL,
   `phone` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -64,7 +66,7 @@ CREATE TABLE `orderinstruments` (
   `ccExpire` varchar(5) NOT NULL,
   `ccCVV` int NOT NULL,
   `instrument` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orderinstruments`
@@ -83,18 +85,18 @@ INSERT INTO `orderinstruments` (`id`, `firstName`, `lastName`, `street`, `housen
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `gender` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `gender` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
   `birth` varchar(10) NOT NULL,
   `street` varchar(30) NOT NULL,
-  `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `city` varchar(30) NOT NULL,
   `phone` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `pwd` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
