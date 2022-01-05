@@ -1,6 +1,24 @@
 <?php include ("main/data.php"); ?>
 <?php
 echo '   
+
+<!-- import css & js -->
+  <!-- style.css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxHxo8Xz4-ja9767Zw7_rwedFkPHTBSS4&libraries=geometry&callback" type="text/javascript"></script>
+  <!-- Cookies -->
+  <script src="scripts/cookies.js"></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 <!-- Navigation-Bar -->
 
 <div class="fixed-top">
@@ -26,15 +44,11 @@ echo '
       <a class="nav-link" aria-current="page" href="index.php">Verleih</a>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#rental" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Instrumente
-      </a>
+      <a class="nav-link dropdown-toggle" href="products.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Instrumente</a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#rental/guitar">Gitarren</a></li>
-        <li><a class="dropdown-item" href="#rental/drums">Schlagzeuge</a></li>
-        <li><a class="dropdown-item" href="#rental/pianos">Pianos</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#rental/bundles">Bundles</a></li>
+        <li><a class="dropdown-item" href="products.php#pianos"><img src="./img/svg/piano.svg" width="30" height="30"> Pianos</a></li>
+        <li><a class="dropdown-item" href="products.php#drums"><img src="./img/svg/drum.svg" width="30" height="30"> Schlagzeuge</a></li>
+        <li><a class="dropdown-item" href="products.php#guitars"><img src="./img/svg/guitar.svg" width="30" height="30"> Gitarren</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -55,7 +69,7 @@ echo '
       <a class="icon-link" href="https://www.instagram.com/" target=”_blank”>
         <i class="fa fa-instagram"></i>  
       </a>
-      <a class="icon-link" href="https://www.google.com/maps/search/D%26H+Instrumentenverleih" target=”_blank”>
+      <a class="icon-link" href="https://www.google.de/search?q=D%26H+Instrumentenverleih" target=”_blank”>
         <i class="fa fa-google"></i>  
       </a>  
       <a class="icon-link" href="https://www.youtube.com/results?search_query=D%26H+Instrumentenverleih" target=”_blank”>

@@ -12,42 +12,30 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <br>
-   
-   <link rel="stylesheet" href="style.css">
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!-- Icons -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
-
-   <script src="script.js"></script>
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
 <body class="bg-dark text-white" onload="getDistance()">
 
+    <!-- Background Image -->
+    <div id="intro-example" class="p-5 bg-image" style="background-image: url('img/bg02.jpg');">
+
     <!-- Navigation-Bar -->
     <?php include ("main/header.php"); ?>
   
     <!-- Contact Form -->
-
     <div class="container mt-5">
 
       <section class="my-5">
 
-        <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold text-center my-5">Du hast eine Frage?</h2>
-        <!-- Section description -->
+        <h2 class="h1-responsive font-weight-bold text-center my-5">Du möchstes ein Instrument vorher ausprobieren oder hast weitere Fragen?</h2>
         <p class="text-center w-responsive mx-auto pb-5">Wir sind sowohl vor Ort, telefonisch, als auch per Kontaktformular erreichbar.</p>
 
-        <!-- Grid row -->
         <div class="row">
 
-          <!-- Grid column -->
           <div class="col-lg-5 mb-lg-0 mb-4">
 
-            <!-- Form with header -->
-            <form class="row g-3" action="scripts/contact_submit.php" method="POST">
+            <form class="row g-3" action="scripts/contact.php" method="POST">
             <div class="card bg-dark text-white">
               <div class="card-body">
                 <!-- Header -->
@@ -59,7 +47,7 @@
                 <div class="md-form">
                   <i class="fa fa-user prefix grey-text"></i>
                   <label for="form-name">Name *</label>
-                  <input type="text" class="form-control" name="name" id="name" value="<?=$name?>" required>
+                  <input type="text" class="form-control" name="name" id="name" value="<?=$fName?> <?=$lName?>" required>
                 </div>
                 <div class="md-form">
                   <i class="fa fa-envelope prefix grey-text"></i>
@@ -80,9 +68,11 @@
                   <i class="fa fa-tag prefix grey-text"></i>
                   <label for="form-Subject">Thema *</label>
                   <select class="form-select" name="subject" id="subject" aria-label="Default select example" required>
-                    <option value="1">allgemeine Anfrage</option>
-                    <option value="2">Fragen zum Instrument</option>
-                    <option value="3">Reklamation</option>  
+                    <option value="allgemeine Anfrage">allgemeine Anfrage</option>
+                    <option value="Fragen zum Instrument">Probetermin</option>
+                    <option value="Fragen zum Instrument">Fragen zum Instrument</option>
+                    <option value="Reklamation">Reklamation</option>
+                    <option value="Karriere">Karriere</option>  
                   </select>
                 </div>
                 <div class="md-form">
@@ -94,25 +84,42 @@
                 <div class="md-form">
                   <label for="form-text">Wie sollen wir uns bei Dir melden? </label>
                   <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                    <label class="btn btn-outline-light" for="btnradio1">per Rückruf</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-light" for="btnradio2">per Mail</label>
+                    <input type="radio" class="btn-check" name="response" id="responsePhone" autocomplete="off" checked>
+                    <label class="btn btn-outline-light" for="responsePhone">per Rückruf</label>
+                    <input type="radio" class="btn-check" name="response" id="responseMail" autocomplete="off">
+                    <label class="btn btn-outline-light" for="responseMail">per Mail</label>
                   </div>
                   <button type="submit" class="btn btn-outline-info"><i class="fa fa-paper-plane"></i></button>
                 </div>
               </div>
             </div>
             </form>
-            <!-- Form with header -->
+
+            <!-- Modal Newsletter Submit -->
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content text-dark">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Du bist dabei!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Deine Anmeldung zum Newsletter war erfolgreich. Du kannst dich jederzeit abmelden.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Alles klar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
           <div class="col-lg-7">
 
-            <!--Google map-->
+            <!--Google Map-->
             <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
               <iframe src="https://maps.google.com/maps?q=Windmühlstraße+27,+68165+Mannheim,+Deutschland&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
                 style="border:0" allowfullscreen></iframe>
@@ -138,22 +145,6 @@
                 <p></p>
               </div>
 
-              <script type="text/javascript">
-                function getDistance() {
-                  navigator.geolocation.getCurrentPosition(
-                  function(position) {
-                    var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                    var latLngB = new google.maps.LatLng(49.4756676, 8.4859626);
-                    var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
-                    document.getElementById('distance').innerHTML = (Math.round(distance)/1000).toFixed(2).toString().replace('.', ',') + " km";
-                  },
-                  function() {
-                    swal( "Ihr Standort konnte nicht ermittelt werden.",  "Einige Inhalte der Website werden dadurch möglicherweise nicht korrekt angezeigt. Bitte erlauben sie ggf. die Standortbestimmung oder verwenden sie die aktuellste Version ihres Browsers." ,  "warning" );
-                  }
-                  );
-                }
-              </script>
-
               <div class="col-md-12" id="journey">
                 <h4>nur <span class="badge rounded-pill bg-primary" id="distance">wenige km</span> Luftlinie von Dir entfernt!</h4>
               </div>
@@ -169,8 +160,6 @@
                 <p></p>
         </div>
 
-        
-        
         <ul class="nav nav-tabs text-white">
           <li class="nav-item-active">
             <a class="nav-link" href="#journey" onclick="calcRoute('DRIVING')">Anfahrt mit dem Auto</a>
@@ -200,119 +189,81 @@
 
       </section>
 
-
-
 <script type="text/javascript">
 
+/* Distance Calculation */
+function getDistance() {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+          var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+          var latLngB = new google.maps.LatLng(49.4756676, 8.4859626);
+          var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+          document.getElementById('distance').innerHTML = (Math.round(distance)/1000).toFixed(2).toString().replace('.', ',') + " km";
+      },
+      function() {
+         swal( "Ihr Standort konnte nicht ermittelt werden.",  "Einige Inhalte der Website werden dadurch möglicherweise nicht korrekt angezeigt. Bitte erlauben sie ggf. die Standortbestimmung oder verwenden sie die aktuellste Version ihres Browsers." ,  "warning" );
+      }
+    );
+}
 
+/* Route Calculation */
+function calcRoute(travelM) {
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
     if (navigator.geolocation) {
+        
+      navigator.geolocation.getCurrentPosition(function(position){
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      var coords = new google.maps.LatLng(latitude, longitude);
 
-      
-        navigator.geolocation.getCurrentPosition(function(position){
-          var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var coords = new google.maps.LatLng(latitude, longitude);
+      var mapOptions = {
+          zoom: 15,
+          center: coords,
+          mapTypeControl: true,
+          navigationControlOptions: {
+              style: google.maps.NavigationControlStyle.SMALL
+          },
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+      map = new google.maps.Map(
+              document.getElementById("mapContainer"), mapOptions
+            );
+      var marker = new google.maps.Marker({
+                  position: coords,
+                  map: map,
+                  title: "Dein aktueller Standort."
+      });
 
-  
-        var mapOptions = {
-            zoom: 15,
-            center: coords,
-            mapTypeControl: true,
-            navigationControlOptions: {
-                style: google.maps.NavigationControlStyle.SMALL
-            },
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(
-                document.getElementById("mapContainer"), mapOptions
-                );
-            var marker = new google.maps.Marker({
-                    position: coords,
-                    map: map,
-                    title: "Your current location!"
-            });
-            
-            
-
-
-
-
-    // get User location
-    new google.maps.Geocoder().geocode({'latLng' : coords}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-        if (results[1]) {
-            var country = null, countryCode = null, city = null, cityAlt = null;
-            var c, lc, component;
-            for (var r = 0, rl = results.length; r < rl; r += 1) {
-                var result = results[r];
-
-                if (!city && result.types[0] === 'locality') {
-                    for (c = 0, lc = result.address_components.length; c < lc; c += 1) {
-                        component = result.address_components[c];
-
-                        if (component.types[0] === 'locality') {
-                            city = component.long_name;
-                            break;
-                        }
-                    }
-                }
-                else if (!city && !cityAlt && result.types[0] === 'administrative_area_level_1') {
-                    for (c = 0, lc = result.address_components.length; c < lc; c += 1) {
-                        component = result.address_components[c];
-
-                        if (component.types[0] === 'administrative_area_level_1') {
-                            cityAlt = component.long_name;
-                            break;
-                        }
-                    }
-                } else if (!country && result.types[0] === 'country') {
-                    country = result.address_components[0].long_name;
-                    countryCode = result.address_components[0].short_name;
-                }
-
-                if (city && country) {
-                    break;
-                }
-            }
-
-            console.log("City: " + city + ", City2: " + cityAlt + ", Country: " + country + ", Country Code: " + countryCode);
-        }
+      var start = coords;
+      var end = "Windmühlstraße 27, 68165 Mannheim";
+      var request = {
+          origin: start,
+          destination: end,
+          travelMode: travelM
+      };
+      directionsService.route(request, function(result, status) {
+          if (status == 'OK') {
+              directionsRenderer.setDirections(result);
+              var totalDistance = 0;
+              var totalDuration = 0;
+              var legs = result.routes[0].legs
+              totalDistance += legs[0].distance.value;
+              totalDuration += legs[0].duration.value;
+              console.log(totalDistance)
+              console.log(totalDuration)
+          }
+      });
+      directionsRenderer.setMap(map);
+      });
     }
-});
-  
+} 
+calcRoute("DRIVING");
 
-
-//calcRoute("DRIVING");
-//directionsRenderer.setMap(map);
-
-  
-
-
-
-
- 
-        });
-
-
-
-    }else {
-        alert("Geolocation API is not supported in your browser.");
-    }
-    
 </script>
 
-
-
+  <!-- footer -->
   <?php include ("main/footer.php"); ?>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxHxo8Xz4-ja9767Zw7_rwedFkPHTBSS4&libraries=geometry&callback" 
-type="text/javascript"></script>
-
-
-
 
 </body>

@@ -2,7 +2,7 @@
 
 $dbUser = "root";
 $dbPass = "test";
-$dbName = "useraccounts";
+$dbName = "dhverleih";
 
 // connect to database
 $db = new PDO('mysql:host=localhost;dbname='. $dbName . ';charstet=utf8' , $dbUser , $dbPass);

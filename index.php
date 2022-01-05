@@ -12,67 +12,70 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <br>
-   
-   <!-- import style.css -->
-   <link rel="stylesheet" href="style.css">
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!-- Icons -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
 
 </head>
 
 <body class="bg-dark text-white">
 
+    <!-- Background Image -->
+    <div id="intro-example" class="p-5 bg-image" style="background-image: url('img/bg01.jpg');">
+
     <!-- Navigation-Bar -->
     <?php include ("main/header.php"); ?>
 
-   <!-- Carousel -->
-
+    <!-- Carousel -->
     <br><br><br>
 
-    <div id="carouselExampleDark" class="carousel carousel-white slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
+    <div id="carouselInstruments" class="carousel carousel-white slide" data-bs-ride="carousel">
+
       <div class="carousel-inner text-white">
-        <div class="carousel-item active" data-bs-interval="4000">
-          <div class="carousel-caption d-none d-md-block">
-            <img src="./img/guitar.jpg" class="d-block w-100" alt="...">
-            <h5>Gitarren</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">Gehe zu Gitarren</button>
-          </div>
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselInstruments" data-bs-slide-to="0" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselInstruments" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselInstruments" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <div class="carousel-caption d-none d-md-block">
-            <img src="./img/drums.jpg" class="d-block w-100" alt="...">
-            <h5>Schlagzeuge</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">Gehe zu Schlagzeugen</button>
-          </div>
-        </div>
+
         <div class="carousel-item" data-bs-interval="4000">
           <div class="carousel-caption d-none d-md-block">
             <img src="./img/piano.jpg" class="d-block w-100" alt="...">
             <h5>Pianos</h5>
             <p>Some representative placeholder content for the third slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">Gehe zu Pianos</button>
+            <a href="products.php#pianos"><button type="button" class="btn btn-outline-light btn-lg">Gehe zu Pianos</button></a>
           </div>
         </div>
+
+        <div class="carousel-item active" data-bs-interval="4000">
+          <div class="carousel-caption d-none d-md-block">
+            <img src="./img/drums.jpg" class="d-block w-100" alt="...">
+            <h5>Schlagzeuge</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+            <a href="products.php#drums"><button type="button" class="btn btn-outline-light btn-lg">Gehe zu Schlagzeugen</button></a>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="4000">
+          <div class="carousel-caption d-none d-md-block">
+            <img src="./img/guitar.jpg" class="d-block w-100" alt="...">
+            <h5>Gitarren</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+            <a href="products.php#guitars"><button type="button" class="btn btn-outline-light btn-lg">Gehe zu Gitarren</button></a>
+          </div>
+        </div>
+
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselInstruments" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselInstruments" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
 
+    </div>
 
     <!-- Infos -->
 
@@ -115,14 +118,8 @@
     </div>
 -->
 
-
     <!-- footer -->
     <?php include ("main/footer.php"); ?>
-
-    <!-- import JavaScript -->
-    <script src="script.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 
