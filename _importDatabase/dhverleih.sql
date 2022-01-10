@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 04:49 PM
--- Server version: 8.0.27
--- PHP Version: 8.0.13
+-- Erstellungszeit: 08. Jan 2022 um 16:03
+-- Server-Version: 8.0.27
+-- PHP-Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,24 +18,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dhverleih`
+-- Datenbank: `dhverleih`
 --
 
 CREATE DATABASE IF NOT EXISTS dhverleih DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE dhverleih;
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `newsletter`
+-- Tabellenstruktur für Tabelle `newsletter`
 --
 
 CREATE TABLE `newsletter` (
   `id` int NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `newsletter`
+-- Daten für Tabelle `newsletter`
 --
 
 INSERT INTO `newsletter` (`id`, `email`) VALUES
@@ -48,58 +49,60 @@ INSERT INTO `newsletter` (`id`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderinstruments`
+-- Tabellenstruktur für Tabelle `orderinstruments`
 --
 
 CREATE TABLE `orderinstruments` (
   `id` int NOT NULL,
-  `firstName` varchar(30) NOT NULL,
-  `lastName` varchar(30) NOT NULL,
-  `street` varchar(30) NOT NULL,
+  `firstName` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `lastName` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `street` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `phone` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `ccHolder` varchar(60) NOT NULL,
-  `ccNumber` varchar(16) NOT NULL,
-  `ccExpire` varchar(5) NOT NULL,
+  `city` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `ccHolder` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,
+  `ccNumber` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `ccExpire` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
   `ccCVV` int NOT NULL,
-  `instrument` varchar(50) NOT NULL
+  `instrument` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `timestamp` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `orderinstruments`
+-- Daten für Tabelle `orderinstruments`
 --
 
-INSERT INTO `orderinstruments` (`id`, `firstName`, `lastName`, `street`, `housenumber`, `zipcode`, `city`, `phone`, `email`, `ccHolder`, `ccNumber`, `ccExpire`, `ccCVV`, `instrument`) VALUES
-(1, 'Peter', 'Altmaier', 'Traubenstraße', '5', '45232', 'Kleinfeld', '', 'peter@mail.com', 'Peter Altmaier', '4345343453453', '03/56', 567, '7/8 Konzertgitarren'),
-(2, 'Peter', 'Altmaier', 'Traubenstraße', '5', '45232', 'Kleinfeld', '', 'peter@mail.com', 'Peter Altmaier', '453543534534645', '01/56', 656, 'Fame Ukulele Koa Bariton'),
-(3, 'Sandra', 'Zuse', 'Weidenstraße', '9', '68165', 'Mannheim', '', 'sandra99@web.de', 'Sandra Zuse', '6543654646346', '04/65', 657, 'J & D AP-5 Parlo');
+INSERT INTO `orderinstruments` (`id`, `firstName`, `lastName`, `street`, `housenumber`, `zipcode`, `city`, `phone`, `email`, `ccHolder`, `ccNumber`, `ccExpire`, `ccCVV`, `instrument`, `timestamp`) VALUES
+(1, 'Peter', 'Altmaier', 'Traubenstraße', '5', '45232', 'Kleinfeld', '', 'peter@mail.com', 'Peter Altmaier', '4345343453453', '03/56', 567, '7/8 Konzertgitarren', '2022-01-02 20:40:45'),
+(2, 'Peter', 'Altmaier', 'Traubenstraße', '5', '45232', 'Kleinfeld', '', 'peter@mail.com', 'Peter Altmaier', '453543534534645', '01/56', 656, 'Fame Ukulele Koa Bariton', '2022-01-07 13:18:06'),
+(3, 'Sandra', 'Zuse', 'Weidenstraße', '9', '68165', 'Mannheim', '', 'sandra99@web.de', 'Sandra Zuse', '6543654646346', '04/65', 657, 'J & D AP-5 Parlo', '2022-01-07 17:53:56'),
+(4, 'Annika', 'Lohr', 'Gerdturm', '87', '46424', 'Hasseln', '0144 3274753', 'annikalohr@gmx.de', 'Annika Lohr', '4535345345345', '12/77', 765, 'Tama RM50YH6-GXS', '2022-01-08 16:03:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabellenstruktur für Tabelle `user`
 --
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
   `gender` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `firstName` varchar(30) NOT NULL,
-  `lastName` varchar(30) NOT NULL,
-  `birth` varchar(10) NOT NULL,
-  `street` varchar(30) NOT NULL,
+  `firstName` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `lastName` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `birth` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `street` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `housenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `zipcode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `phone` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `pwd` varchar(50) NOT NULL
+  `city` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `pwd` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Daten für Tabelle `user`
 --
 
 INSERT INTO `user` (`id`, `gender`, `firstName`, `lastName`, `birth`, `street`, `housenumber`, `zipcode`, `city`, `phone`, `email`, `pwd`) VALUES
@@ -114,45 +117,45 @@ INSERT INTO `user` (`id`, `gender`, `firstName`, `lastName`, `birth`, `street`, 
 (9, 'M', 'Gilbert', 'Schnösel', '', 'Kantstraße', '2', '65754', 'Mannheim', '0123 2832113321', 'gilbert87@posteo.com', 'ec0db7aadd4ee13c4f0e2151316e02c3b40b8d1c');
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `newsletter`
+-- Indizes für die Tabelle `newsletter`
 --
 ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orderinstruments`
+-- Indizes für die Tabelle `orderinstruments`
 --
 ALTER TABLE `orderinstruments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
   ADD UNIQUE KEY `1` (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `newsletter`
+-- AUTO_INCREMENT für Tabelle `newsletter`
 --
 ALTER TABLE `newsletter`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `orderinstruments`
+-- AUTO_INCREMENT für Tabelle `orderinstruments`
 --
 ALTER TABLE `orderinstruments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

@@ -49,13 +49,11 @@ echo '
         <h5 class="text-uppercase mb-4">Über D&H</h5>
 
         <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti.
+          Ganz nach dem Motto "Musik ist die stärkste Form der Magie" bieten wir bereits seit 2009 jedem die Möglichkeit, ein wenig Magie zu spüren.
         </p>
 
         <p>
-          Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-          molestias.
+          Wir sind D&H und stehen Euch für alle Anliegen zur Verfügung. Meldet Euch bei uns!
         </p>
 
       </div>
@@ -95,7 +93,7 @@ echo '
 
       </div>
 
-      <!--Opening hours-->
+      <!--Opening Hours-->
       <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase mb-4">Öffnungszeiten</h5>
 

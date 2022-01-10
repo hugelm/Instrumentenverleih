@@ -22,110 +22,6 @@
 
     <!-- Navigation-Bar -->
     <?php include ("main/header.php"); ?>
-
-        <!-- Script for Login & Register Buttons -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-        <script type="text/javascript">
-            $(function(){  
-
-                //$(document).on('click','#login',function(e){
-                $('#login').click(function(e){
-
-                    var valid = this.form.checkValidity();
-                    if(valid){
-
-                    var login_email = $('#emailLogin');
-                    var login_pwd = $('#pwdLogin');
-
-                        e.preventDefault();
-                        $.ajax({
-                            type: 'POST',
-                            url: 'scripts/login.php',
-                            data: {login_email: login_email.val(), login_pwd: login_pwd.val()},
-                            success: function(data){
-                                if($.trim(data) === "user found"){
-                                    swal( "Willkommen zurück!",  "Du wurdest erfolgreich eingeloggt." ,  "success" );
-                                    setTimeout('window.location.href = "index.php"', 2000);
-                                } else if($.trim(data) === "no user found"){
-                                    swal( "Ooops",  "Dein/e E-Mail / Passwort ist falsch. Bitte versuche es erneut." ,  "warning" );
-                                } else {
-                                    swal( "Login fehlgeschlagen!",  "Bitte versuche es später erneut." ,  "error" );
-                                }
-                            },
-                            error: function(data){
-                                swal(  "Login fehlgeschlagen!" ,  "Bitte versuche es später erneut." ,  "error" );
-                            }
-                        });  
-                    }
-                });
-
-                $('#register').click(function(e){
-
-                    console.log(document.getElementById('birth').value)
-
-                    var valid = this.form.checkValidity();
-                    if(valid){
-
-                        // save form data in variables
-                        var fName = $('#firstName').val();
-                        var lName = $('#lastName').val();
-                        var birth = $('#birth').val();
-                        var street = $('#street').val();
-                        var housenumber = $('#number').val();
-                        var zipCode = $('#zipCode').val();
-                        var city = $('#city').val();
-                        var phone = $('#phone').val();
-                        var email = $('#email').val();
-                        var pwd = $('#pwd').val();
-                        var pwdR = $('#pwd_rep').val();
-                        if (document.getElementById('birth').value = ""){
-                            var birth = null;
-                        }
-                        if (document.getElementById('genderM').checked){
-                            var gender = "M";
-                        } else if (document.getElementById('genderF').checked){
-                            var gender = "F";
-                        } else {
-                            var gender = "-";
-                        }
-                        
-                        if ($('#pwd').val() == $('#pwd_rep').val()){
-                        // 1. condition: are password and password repetition equal?
-                        if (document.getElementById("emailIsTaken").innerHTML == "E-Mail verfügbar."){
-                        // 2. condition: does the email account exit in database?
-                                e.preventDefault();
-                                $.ajax({
-                                    type: 'POST',
-                                    url: 'scripts/register.php',
-                                    data: {gender: gender, fName: fName, lName: lName, birth: birth, street: street, housenumber: housenumber, zipCode: zipCode, city: city, phone: phone, email: email, pwd: pwd},
-                                    success: function(data){
-                                        swal( "Herzlich Willkommen, " + fName + "!",  "Deine Registrierung war erfolgreich." ,  "success" );
-                                        setTimeout('window.location.href = "userauth.php"', 2000);
-                                    },
-                                    error: function(data){
-                                        swal( "Registrierung fehlgeschlagen!" ,  "Bitte versuche es später erneut." ,  "error" );
-                                    }
-                                });
-                        } else {
-                            // 2. conditon: exception
-                            e.preventDefault();
-                            swal( "Ooops",  "Ein Konto mit dieser E-Mail-Adresse existiert bereits." ,  "warning" );
-                        }
-                        } else {
-                             // 1. conditon: exception
-                            e.preventDefault();
-                            swal( "Ooops",  "Deine Passwörter stimmen nicht überein." ,  "warning" );
-                        }
-                    };      
-                });
-
-                $('#forgotPwd').click(function(e){
-                    swal(  'Passwort vergessen?', 'Bitte wende Dich in diesem Fall per Formular, Telefon oder direkt persönlich bei uns. Wir helfen Dir gerne weiter.', 'error')
-                });
-            
-            });
-        </script>
     
     <br>
 
@@ -321,8 +217,107 @@
 
 <script type="text/javascript">
 
+$(function(){
+// login & register button
+
+    $('#login').click(function(e){
+
+        var valid = this.form.checkValidity();
+        if(valid){
+
+        var login_email = $('#emailLogin');
+        var login_pwd = $('#pwdLogin');
+
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'scripts/login.php',
+                data: {login_email: login_email.val(), login_pwd: login_pwd.val()},
+                success: function(data){
+                    if($.trim(data) === "user found"){
+                        swal( "Willkommen zurück!",  "Du wurdest erfolgreich eingeloggt." ,  "success" );
+                        setTimeout('window.location.href = "index.php"', 2000);
+                    } else if($.trim(data) === "no user found"){
+                        swal( "Ooops",  "Dein/e E-Mail / Passwort ist falsch. Bitte versuche es erneut." ,  "warning" );
+                    } else {
+                        swal( "Login fehlgeschlagen!",  "Bitte versuche es später erneut." ,  "error" );
+                    }
+                },
+                error: function(data){
+                    swal(  "Login fehlgeschlagen!" ,  "Bitte versuche es später erneut." ,  "error" );
+                }
+            });  
+        }
+    });
+
+    $('#register').click(function(e){
+
+        console.log(document.getElementById('birth').value)
+
+        var valid = this.form.checkValidity();
+        if(valid){
+
+            // save form data in variables
+            var fName = $('#firstName').val();
+            var lName = $('#lastName').val();
+            var birth = $('#birth').val();
+            var street = $('#street').val();
+            var housenumber = $('#number').val();
+            var zipCode = $('#zipCode').val();
+            var city = $('#city').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var pwd = $('#pwd').val();
+            var pwdR = $('#pwd_rep').val();
+            if (document.getElementById('birth').value = ""){
+                var birth = null;
+            }
+            if (document.getElementById('genderM').checked){
+                var gender = "M";
+            } else if (document.getElementById('genderF').checked){
+                var gender = "F";
+            } else {
+                var gender = "-";
+            }
+            
+            if ($('#pwd').val() == $('#pwd_rep').val()){
+            // 1. condition: are password and password repetition equal?
+            if (document.getElementById("emailIsTaken").innerHTML == "E-Mail verfügbar."){
+            // 2. condition: does the email account exit in database?
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        url: 'scripts/register.php',
+                        data: {gender: gender, fName: fName, lName: lName, birth: birth, street: street, housenumber: housenumber, zipCode: zipCode, city: city, phone: phone, email: email, pwd: pwd},
+                        success: function(data){
+                            swal( "Herzlich Willkommen, " + fName + "!",  "Deine Registrierung war erfolgreich." ,  "success" );
+                            setTimeout('window.location.href = "userauth.php"', 2000);
+                        },
+                        error: function(data){
+                            swal( "Registrierung fehlgeschlagen!" ,  "Bitte versuche es später erneut." ,  "error" );
+                        }
+                    });
+            } else {
+                // 2. conditon: exception
+                e.preventDefault();
+                swal( "Ooops",  "Ein Konto mit dieser E-Mail-Adresse existiert bereits." ,  "warning" );
+            }
+            } else {
+                    // 1. conditon: exception
+                e.preventDefault();
+                swal( "Ooops",  "Deine Passwörter stimmen nicht überein." ,  "warning" );
+            }
+        };      
+    });
+
+    $('#forgotPwd').click(function(e){
+        swal(  'Passwort vergessen?', 'Bitte wende Dich in diesem Fall per Formular, Telefon oder direkt persönlich bei uns. Wir helfen Dir gerne weiter.', 'error')
+    });
+
+});
+
 function emailIsTaken(email){
-    // check is email is already saved in database
+// check is email is already saved in database
     if (window.XMLHttpRequest)
     {
     /// AJAX with mit IE7+, Chrome, Firefox, Safari, Opera
@@ -335,7 +330,7 @@ function emailIsTaken(email){
     }
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
-        document.getElementById("emailIsTaken").innerHTML=xmlhttp.responseText;
+            document.getElementById("emailIsTaken").innerHTML=xmlhttp.responseText;
         }
     }
     xmlhttp.open("GET","scripts/isEmailTaken.php?query="+email,true);
@@ -343,7 +338,7 @@ function emailIsTaken(email){
 }
 
 function pwdIsEqual(pwdR){
-    // checks if both passwords are equal
+// checks if both passwords are equal
     if (pwdR==document.getElementById("pwd").value){
         document.getElementById("pwdIsEqual").innerHTML="Die Passwörter stimmen überein.";
     } else {
@@ -353,7 +348,7 @@ function pwdIsEqual(pwdR){
 }
 
 if (navigator.geolocation && !(getCookie("dataLocation"))) {
-    // get user location if it is not saved as a cookie
+// get user location if it is not saved as a cookie
     console.log("detect user location...")
     navigator.geolocation.getCurrentPosition(function(position){
         var latitude = position.coords.latitude;
@@ -393,7 +388,7 @@ if (navigator.geolocation && !(getCookie("dataLocation"))) {
 
 </script>
 
-    <!-- footer -->
+    <!-- Footer -->
     <?php include ("main/footer.php"); ?>
 
 </body>

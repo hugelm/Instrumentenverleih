@@ -6,14 +6,14 @@
   padding-left: 10px;
 }
 
-/* Header Nav Hover */
+/* Header Nav */
 .nav-link {
   cursor: pointer;
   padding-right: 30px;
 }
 .nav-link:active,
 .nav-link:hover {
-  color: #67E0FE !important;
+  color: #fff !important;
 }
 
 /* Header Icons */
@@ -25,7 +25,7 @@
 }
 .icon-link:active,
 .icon-link:hover {
-    color: #96E8FD;
+    color: green;
 }
 
 /* Carousel */
@@ -46,27 +46,11 @@
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
 }
 
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
-}
-@media (min-width: 769px) {
-  .gradient-custom {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-  }
-}
-
-/* Journey Selection Travel Mode */
-/*
-.nav-tabs > li.active > a {
-  color: #fff;
-  font-size: 16px;
-}
-*/
 .nav-tabs > li > a {
   color: #fff;
 }

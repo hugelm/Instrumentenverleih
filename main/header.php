@@ -15,6 +15,8 @@ echo '
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxHxo8Xz4-ja9767Zw7_rwedFkPHTBSS4&libraries=geometry&callback" type="text/javascript"></script>
   <!-- Cookies -->
   <script src="scripts/cookies.js"></script>
+  <!-- AJAX -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Sweet Alert -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -84,7 +86,9 @@ echo '
 
   </div>
 </div>
+
 </nav>
 
-</div>';
+</div>
+';
 ?>

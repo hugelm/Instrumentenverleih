@@ -24,11 +24,11 @@
     <p class="text-center w-responsive mx-auto pb-3">Du kannst dein Instrument noch heute bei uns abholen.</p>
     <p class="text-center w-responsive mx-auto pb-3">Bei weiteren Fragen erreichst Du uns wie gewohnt vor Ort, telefonisch oder per Kontaktformular.</p>
 
-    <!-- setup our canvas element -->
+    <!-- Canvas -->
     <canvas id="canvas">Canvas is not supported in your browser.</canvas>
     <script src="scripts/canvas.js"></script>
 
-    <!-- footer -->
+    <!-- Footer -->
     <?php include ("main/footer.php"); ?>
 
 </body>

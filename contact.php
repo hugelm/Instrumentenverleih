@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="bg-dark text-white" onload="getDistance()">
+<body class="bg-dark text-white">
 
     <!-- Background Image -->
     <div id="intro-example" class="p-5 bg-image" style="background-image: url('img/bg02.jpg');">
@@ -35,7 +35,7 @@
 
           <div class="col-lg-5 mb-lg-0 mb-4">
 
-            <form class="row g-3" action="scripts/contact.php" method="POST">
+            <form class="row g-3" action="scripts/contact.php" onsubmit="return confirm('Deine Nachricht wird gleich versendet. Dies kann wenige Sekunden in Anspruch nehmen.');" method="POST">
             <div class="card bg-dark text-white">
               <div class="card-body">
                 <!-- Header -->
@@ -89,38 +89,18 @@
                     <input type="radio" class="btn-check" name="response" id="responseMail" autocomplete="off">
                     <label class="btn btn-outline-light" for="responseMail">per Mail</label>
                   </div>
-                  <button type="submit" class="btn btn-outline-info"><i class="fa fa-paper-plane"></i></button>
+                  <button type="submit" class="btn btn-outline-info" id="journey"><i class="fa fa-paper-plane"></i></button>
                 </div>
               </div>
             </div>
             </form>
-
-            <!-- Modal Newsletter Submit -->
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content text-dark">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Du bist dabei!</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Deine Anmeldung zum Newsletter war erfolgreich. Du kannst dich jederzeit abmelden.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Alles klar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
 
           <div class="col-lg-7">
 
             <!--Google Map-->
-            <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
+            <div id="map-container-section" class="z-depth-1-half map-container-section mb-4 bg-dark" style="height: 400px">
               <iframe src="https://maps.google.com/maps?q=Windmühlstraße+27,+68165+Mannheim,+Deutschland&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
                 style="border:0" allowfullscreen></iframe>
             </div>
@@ -145,10 +125,9 @@
                 <p></p>
               </div>
 
-              <div class="col-md-12" id="journey">
+              <div class="col-md-12">
                 <h4>nur <span class="badge rounded-pill bg-primary" id="distance">wenige km</span> Luftlinie von Dir entfernt!</h4>
-              </div>
-           
+              </div>      
 
           </div>
 
@@ -161,7 +140,7 @@
         </div>
 
         <ul class="nav nav-tabs text-white">
-          <li class="nav-item-active">
+          <li class="nav-item">
             <a class="nav-link" href="#journey" onclick="calcRoute('DRIVING')">Anfahrt mit dem Auto</a>
           </li>
           <li class="nav-item">
@@ -187,12 +166,16 @@
 
         </div>
 
+        <div class="col-md-12 text-center" id="journey">
+                <h4><span class="badge rounded-pill bg-primary" id="duration"></span></h4>
+        </div> 
+
       </section>
 
 <script type="text/javascript">
 
-/* Distance Calculation */
 function getDistance() {
+// Distance Calaculation
     navigator.geolocation.getCurrentPosition(
       function(position) {
           var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -206,9 +189,8 @@ function getDistance() {
     );
 }
 
-/* Route Calculation */
 function calcRoute(travelM) {
-
+// Route Calaculation
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
     if (navigator.geolocation) {
@@ -251,19 +233,20 @@ function calcRoute(travelM) {
               var legs = result.routes[0].legs
               totalDistance += legs[0].distance.value;
               totalDuration += legs[0].duration.value;
-              console.log(totalDistance)
-              console.log(totalDuration)
+              document.getElementById('duration').innerHTML = "Entfernung: " + (Math.round(totalDuration)/60).toFixed(0).toString() + " Minuten";
           }
       });
       directionsRenderer.setMap(map);
       });
     }
-} 
+}
+
+getDistance();
 calcRoute("DRIVING");
 
 </script>
 
-  <!-- footer -->
+  <!-- Footer -->
   <?php include ("main/footer.php"); ?>
 
 </body>

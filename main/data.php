@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 if (isset($_SESSION['userlogin'])) {
     $header = "Hi, " . $_SESSION['userlogin']['firstName'] . "!";
     $fName = $_SESSION['userlogin']['firstName'];
@@ -28,4 +29,5 @@ if (isset($_SESSION['userlogin'])) {
     $adress = "";
     $sessionSet = array("btn btn-success", "fa fa-lock", "Anmelden");
 }
+
 ?>

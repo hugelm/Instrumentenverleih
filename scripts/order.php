@@ -24,7 +24,7 @@ if(isset($_POST)){
 
     $instrument = $_POST['instrument'];
 
-    $sql = "INSERT INTO orderinstruments (firstName, lastName, street, housenumber, zipcode, city, phone, email, ccHolder, ccNumber, ccExpire, ccCVV, instrument) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO orderinstruments (firstName, lastName, street, housenumber, zipcode, city, phone, email, ccHolder, ccNumber, ccExpire, ccCVV, instrument, timestamp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
     $insert = $db->prepare($sql);
     $res = $insert->execute([$fName, $lName, $street, $housenumber, $zipCode, $city, $phone, $email, $ccHolder, $ccNumber, $ccExpire, $ccCVV, $instrument]);
     if($res){
