@@ -12,7 +12,7 @@ echo '
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxHxo8Xz4-ja9767Zw7_rwedFkPHTBSS4&libraries=geometry&callback" type="text/javascript"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry&callback" type="text/javascript"></script>
   <!-- Cookies -->
   <script src="scripts/cookies.js"></script>
   <!-- AJAX -->
